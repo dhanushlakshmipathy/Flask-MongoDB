@@ -2,71 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic Form</title>
+    <title>User Form</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f6f8;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .form-container {
-            background: #fff;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            width: 320px;
-        }
-
-        .form-container h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 6px;
-            font-weight: bold;
-            color: #444;
-        }
-
-        input[type="text"],
-        input[type="number"],
-        input[type="email"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            box-sizing: border-box;
-        }
-
-        input[type="submit"] {
-            background: #007BFF;
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 6px;
-            width: 100%;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        input[type="submit"]:hover {
-            background: #0056b3;
-        }
+        body { font-family: Arial; background: #f4f6f8; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .form-container { background: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 320px; }
+        .form-container h2 { text-align: center; margin-bottom: 20px; color: #333; }
+        label { display: block; margin-bottom: 6px; font-weight: bold; color: #444; }
+        input[type="text"], input[type="number"], input[type="email"] { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; }
+        input[type="submit"] { background: #007BFF; color: white; border: none; padding: 12px; border-radius: 6px; width: 100%; cursor: pointer; font-size: 16px; }
+        input[type="submit"]:hover { background: #0056b3; }
+        .error { color: red; text-align: center; margin-bottom: 10px; }
     </style>
 </head>
 <body>
-
     <div class="form-container">
         <h2>User Form</h2>
-        <form action="/api" method="get">
+
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+
+        <form action="/" method="post">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
 
@@ -79,6 +35,5 @@
             <input type="submit" value="Submit">
         </form>
     </div>
-
 </body>
 </html>
